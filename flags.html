@@ -1,0 +1,43 @@
+<html>
+<head>
+    <style>
+        .flag {
+            width: 210px;
+            height: 210px;
+            border: solid 5px #ededed;
+            border-radius: 50%;
+            box-shadow: 0 5px 5px  #aaaaaa;
+            margin: 30px;
+        }
+
+        #germany {
+            background: linear-gradient(180deg, #000000, #000000 calc(100% / 3),
+            #DD0000 calc(100% / 3), #DD0000 calc(100% / 3 * 2),
+            #FFCE00 calc(100% / 3 * 2), #FFCE00 100%);
+        }
+
+        #greenland {
+            border-radius: 50%;
+            background: linear-gradient(180deg, white , white calc(100% / 2),
+            #d00932 calc(100% / 2), #d00932 100%);
+            box-shadow: 3px 5px 5px  #aaaaaa;
+        }
+
+        #greenland_inner {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #d00932 , #d00932 calc(100% / 2),
+            #fffefe calc(100% / 2), #fffefe 100%);
+            margin: 35px 10px;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class=flag id=germany></div>
+    <div class=flag id=greenland>
+        <div id=greenland_inner></div>
+    </div>
+</body>
+</html>
