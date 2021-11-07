@@ -1,0 +1,9 @@
+#wrap{position: relative;float: left;width: 100%;border: 1px solid red;}
+
+#author{
+    position: fixed;
+    width: 60%;
+    height: 60%;
+    
+    /* Autor : Fixed div szer/wys 60% 60% , prawy gorny rog zamknij, z informacją o autorze imie nazwisko numer albumu cos od siebie :) */
+}
