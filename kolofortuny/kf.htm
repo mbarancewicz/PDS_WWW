@@ -44,7 +44,7 @@ W prawym gornym rogu pokazujemy liczbę zyć
 
 		<div id="wrapper">
 			<div id="menu">
-				<button id="playButton">Start</button>
+				<button id="playButton" onclick="openGame()">Start</button>
 				<button id="authorButton" onclick="openAuthorInfo()">Autor</button>
 			</div>
 			<div id="author">
@@ -53,12 +53,13 @@ W prawym gornym rogu pokazujemy liczbę zyć
 				<p>215672</p>
 				<p>coś tam</p>
 			</div>
+			<div id="game">
+				<div id="guessedWord"></div>
+				<input type="text" placeholder="Podaj litere" id="inputLetter" />
+				<button id="submitLetter">Sprawdź</button>
+			</div>
 		</div>
-		<!-- <div id="panstwa"></div>
-		<div id="wrap">
-			<input type="text" placeholder="wpisz litere" id="wpisz_litere" value="mojalitera"/>
-			<button id="graj">GRAJ</button>
-		</div> -->
+
 		<script type="text/javascript" src="countries.js"></script>		
 		<script type="text/javascript" src="fortuna.js"></script>
 	</body>

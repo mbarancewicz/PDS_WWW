@@ -25,10 +25,21 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#game {
+    display: none;
+}
+
 #guessedWord {
 
 }
 
-#letter {
-
+.letter {
+    width: 50px;
+    height: 75px;
+    background-color: lightgray;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 60px;
 }

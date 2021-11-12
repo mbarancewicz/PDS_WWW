@@ -3,10 +3,26 @@ function openAuthorInfo() {
   document.getElementById("author").style.display = 'block';
 }
 
-
 function closeAuthorInfo() {
   document.getElementById("author").style.display = 'none';
   document.getElementById("menu").style.display = 'block';
+}
+
+function openGame() {
+  document.getElementById("menu").style.display = 'none';
+  document.getElementById("game").style.display = 'block';
+  displayGuessedWord();
+}
+
+function displayGuessedWord() {
+  var word = "Poland";
+  for(const letter in word) {
+    var letterDiv = document.createElement("div");
+    letterDiv.className = "letter";
+    letterDiv.innerText = "_";
+
+    document.getElementById("guessedWord").appendChild(letterDiv);
+  }
 }
 
 
