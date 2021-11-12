@@ -1,3 +1,14 @@
+function openAuthorInfo() {
+  document.getElementById("menu").style.display = 'none';
+  document.getElementById("author").style.display = 'block';
+}
+
+
+function closeAuthorInfo() {
+  document.getElementById("author").style.display = 'none';
+  document.getElementById("menu").style.display = 'block';
+}
+
 
 var game = {
   zdobyte : 0,
@@ -5,7 +16,7 @@ var game = {
 }
 // alert(data[0]['country']);
 var elem = document.getElementById("panstwa");
-elem.innerHTML =data[0]['country'];
+elem.innerHTML = data[0]['country'];
 
 // alert(data.length);
 // alert(data[0]['country'][2]);

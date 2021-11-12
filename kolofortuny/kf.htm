@@ -42,17 +42,24 @@ W prawym gornym rogu pokazujemy liczbę zyć
 	</head>
 	<body>
 
-		<div id="menu">
-			<button id="playButton">Start</button>
-			<button id="playButton">Autor</button>
+		<div id="wrapper">
+			<div id="menu">
+				<button id="playButton">Start</button>
+				<button id="authorButton" onclick="openAuthorInfo()">Autor</button>
+			</div>
+			<div id="author">
+				<div id="exitButton" onclick="closeAuthorInfo()">x</div>
+				<p>Maciej Barancewicz</p>
+				<p>215672</p>
+				<p>coś tam</p>
+			</div>
 		</div>
-
 		<!-- <div id="panstwa"></div>
 		<div id="wrap">
 			<input type="text" placeholder="wpisz litere" id="wpisz_litere" value="mojalitera"/>
 			<button id="graj">GRAJ</button>
-		</div>
+		</div> -->
 		<script type="text/javascript" src="countries.js"></script>		
-		<script type="text/javascript" src="fortuna.js"></script> -->
+		<script type="text/javascript" src="fortuna.js"></script>
 	</body>
 	</html>
