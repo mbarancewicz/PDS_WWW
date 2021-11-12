@@ -33,6 +33,16 @@
 
 }
 
+#gameOver {
+    display: none;
+    font-size: 30px;
+}
+
+#lifes {
+    float: right;
+    margin-right: 5%;
+}
+
 .letter {
     width: 50px;
     height: 75px;

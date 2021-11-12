@@ -23,7 +23,8 @@ GRA:
 
 
 
-Na początku trzeba stworzyc ładne okienka pokazujace odgadywane losowo z JSONa słowo, proszę użyć róznych cssow np box-shadow każda litera to osobno stworzony np span.
+Na początku trzeba stworzyc ładne okienka pokazujace odgadywane losowo z JSONa słowo, proszę użyć róznych cssow np box-shadow każda litera 
+to osobno stworzony np span.
 Potem w polu tekstowym duzym wysrodkowanym pod hasłem prosimy uzytkownika o litere. Jeśli w haśle są takie litery to odkrywamy je.
 Jeśli brak takiej litery to odejmuje od zyć 1 punkt.
 Jeśli wszystkie litery odgadlismy to dodajemy uzytkownikowi 5 dodatkowych zyć i losujemy gre od początku.
@@ -44,6 +45,7 @@ W prawym gornym rogu pokazujemy liczbę zyć
 
 		<div id="wrapper">
 			<div id="menu">
+				<div id="gameOver"><p>Przegrałeś</p></div>
 				<button id="playButton" onclick="openGame()">Start</button>
 				<button id="authorButton" onclick="openAuthorInfo()">Autor</button>
 			</div>
@@ -54,7 +56,9 @@ W prawym gornym rogu pokazujemy liczbę zyć
 				<p>coś tam</p>
 			</div>
 			<div id="game">
-				<div id="guessedWord"></div>
+				<div id="guessedWord">
+					<div id="lifes">Życia: 5</div>
+				</div>
 				<input type="text" placeholder="Podaj litere" id="inputLetter" maxlength="1" />
 				<button id="submitLetter" onclick="guessLetter()">Sprawdź</button>
 			</div>
