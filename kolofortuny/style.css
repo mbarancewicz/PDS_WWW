@@ -39,7 +39,8 @@
 }
 
 #lifes {
-    float: right;
+    position: fixed;
+    height: 100%;
     margin-right: 5%;
 }
 

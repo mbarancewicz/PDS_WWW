@@ -1,16 +1,21 @@
 var game;
 
 function getRandomCountry() {
-  return data[getRandomInt(0, data.length - 1)].country.toUpperCase().split(' ');
+  return data[getRandomInt(0, data.length - 1)].country.toUpperCase();
 }
 
 function initGameState() {
   var country = getRandomCountry();
+  var lifes = 5;
+  if(game != null) lifes = game.lifes + 5;
+
   game = {
-    country: country,
-    lifes: 5,
-    blanks: country.length
+    countryString : country,
+    country: country.split(' '),
+    lifes: lifes,
+    blanks: country.split('').filter(l => l != ' ').length
   };
+  console.log(game);
 }
 
 function initGame() {
@@ -57,16 +62,21 @@ function displayGuessedWord() {
 
 function guessLetter() {
   var letter = document.getElementById("inputLetter").value.toUpperCase();
-  if(game.country.includes(letter)) {
-    for(var i = 0; i < game.country.length; i++) {
-      if(game.country[i] == letter) {
-        document.getElementById(`letter_${i}`).innerHTML = letter;
+  if(game.countryString.includes(letter) && letter != ' ') {
+    for(var j = 0; j < game.country.length; j++) {
+      console.log(game.country[j].length);
+      for(var i = 0; i < game.country[j].length; i++) {
+        if(game.country[j][i] == letter) {
+          document.getElementById(`letter_${j}_${i}`).innerHTML = letter;
+          game.blanks -= 1;
+          if(game.blanks === 0) {
+            clearLetters();
+            initGame();
+            return;
+          }
+        }
       }
-    }
-    game.blanks -= 1;
-    if(game.blanks === 0) {
-      clearLetters();
-      initGame();
+     
     }
   } else {
     var lifesDiv = document.getElementById("lifes");
@@ -92,5 +102,5 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
-// to do: reset po wygranej
-// podzial slow na linie
+// to do:
+// podzial slow na linie css
