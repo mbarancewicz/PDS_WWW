@@ -29,8 +29,8 @@
     display: none;
 }
 
-#guessedWord {
-
+.guessedWord {
+    display: block;
 }
 
 #gameOver {

@@ -1,21 +1,21 @@
 var game;
 
-function getRandomWord() {
-  return data[getRandomInt(0, data.length - 1)].country.toUpperCase();
+function getRandomCountry() {
+  return data[getRandomInt(0, data.length - 1)].country.toUpperCase().split(' ');
 }
 
 function initGameState() {
-  var word = getRandomWord();
+  var country = getRandomCountry();
   game = {
-    word: word,
+    country: country,
     lifes: 5,
-    blanks: word.length
+    blanks: country.length
   };
 }
 
 function initGame() {
   initGameState();
-  console.log(game.word);
+  console.log(game.country);
   displayGuessedWord();
   document.getElementById("lifes").innerHTML = `Życia: ${game.lifes}`;
 }
@@ -37,21 +37,29 @@ function openGame() {
 }
 
 function displayGuessedWord() {
-  for(const letter in game.word) {
-    var letterDiv = document.createElement("div");
-    letterDiv.className = "letter";
-    letterDiv.id = `letter_${letter}`
-    letterDiv.innerText = "_";
+  for(const word in game.country) {
+    var guessedWord = document.createElement("div");
+    guessedWord.className = "guessedWord";
+    guessedWord.id = `guessedWord_${word}`;
+  
+    document.getElementById(`guessedCountry`).appendChild(guessedWord);
 
-    document.getElementById("guessedWord").appendChild(letterDiv);
+    for(const letter in game.country[word]) {
+      var letterDiv = document.createElement("div");
+      letterDiv.className = "letter";
+      letterDiv.id = `letter_${word}_${letter}`;
+      letterDiv.innerText = "_";
+  
+      document.getElementById(`guessedWord_${word}`).appendChild(letterDiv);
+    }
   }
 }
 
 function guessLetter() {
   var letter = document.getElementById("inputLetter").value.toUpperCase();
-  if(game.word.includes(letter)) {
-    for(var i = 0; i < game.word.length; i++) {
-      if(game.word[i] == letter) {
+  if(game.country.includes(letter)) {
+    for(var i = 0; i < game.country.length; i++) {
+      if(game.country[i] == letter) {
         document.getElementById(`letter_${i}`).innerHTML = letter;
       }
     }
@@ -84,4 +92,5 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
-// to do reset po wygranej
+// to do: reset po wygranej
+// podzial slow na linie
