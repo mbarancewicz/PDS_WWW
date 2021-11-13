@@ -1,4 +1,8 @@
-#wrap{position: relative;float: left;width: 100%;border: 1px solid red;}
+body {
+    background-image: url("fireworks.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 #wrapper {
     position: fixed;
@@ -8,11 +12,11 @@
     margin-left: 20%;
     margin-right: 20%;
     text-align: center;
-    /* Autor : Fixed div szer/wys 60% 60% , prawy gorny rog zamknij, z informacją o autorze imie nazwisko numer albumu cos od siebie :) */
 }
 
 #author {
     display: none;
+    color: white;
 }
 
 #exitButton {
@@ -42,6 +46,7 @@
     position: fixed;
     height: 100%;
     margin-right: 5%;
+    color: white;
 }
 
 .letter {

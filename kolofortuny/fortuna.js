@@ -76,7 +76,6 @@ function guessLetter() {
           }
         }
       }
-     
     }
   } else {
     var lifesDiv = document.getElementById("lifes");
@@ -102,5 +101,3 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
-// to do:
-// podzial slow na linie css
