@@ -38,6 +38,7 @@ body {
 }
 
 #gameOver {
+    color: white;
     display: none;
     font-size: 30px;
 }
