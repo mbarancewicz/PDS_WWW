@@ -13,6 +13,8 @@ function validateInput(pesel) {
     var month = pesel[1];
     var day = pesel[2];
 
+    if(year < "1800" || year > "2299" || month < "0" || month > "12" || day < "1" || day > "31") return false;
+
     var date = new Date(year, month - 1, day - 1)
     if(date.isNan) return false;
     return true;
