@@ -9,13 +9,13 @@
 </head>
 <body>
     Rok
-    <input type="number" id="year" maxlength=4>
+    <input type="number" id="year">
     Miesiąc
-    <input type="number" id="month" maxlength=2>
+    <input type="number" id="month">
     Dzień
-    <input type="number" id="day" maxlength=2>
+    <input type="number" id="day">
     Ostatnie 5 cyfr
-    <input type="number" id="postfix" maxlength=5>
+    <input type="text" pattern="\d*" id="postfix" maxlength="5">
     <button onclick="validate()">Stworz</button>
 
     <div id="pesel"></div>
