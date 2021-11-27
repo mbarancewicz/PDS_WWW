@@ -17,6 +17,7 @@
     Ostatnie 5 cyfr
     <input type="text" pattern="\d*" id="postfix" maxlength="5">
     <button onclick="validate()">Stworz</button>
+    <button onclick="generateFromDate()">Wygeneruj z daty</button>
 
     <div id="pesel"></div>
     <div id="validationResult"></div>
@@ -34,6 +35,22 @@
                 document.getElementById('month').value,
                 document.getElementById('day').value,
                 document.getElementById('postfix').value
+            ];
+
+            worker.postMessage(peselArr);
+        }
+
+        function generateFromDate() {
+            var worker = new Worker('show_all_pesels.js');
+            
+            worker.addEventListener('message', function(e) {
+                document.getElementById('validationResult').innerHTML = e.data;
+            }, false);
+
+            var peselArr = [
+                document.getElementById('year').value,
+                document.getElementById('month').value,
+                document.getElementById('day').value,
             ];
 
             worker.postMessage(peselArr);
