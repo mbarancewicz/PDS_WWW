@@ -23,7 +23,7 @@
 
     <script>
         function validate() {
-            var worker = new Worker('validator.js');
+            var worker = new Worker('validate_one_pesel.js');
             
             worker.addEventListener('message', function(e) {
                 document.getElementById('validationResult').innerHTML = e.data;

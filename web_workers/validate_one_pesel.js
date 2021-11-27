@@ -1,15 +1,13 @@
 this.addEventListener('message', function(e) {
+    var message = "Nieprawidlowy PESEL!"; 
     if(validateInput(e.data)) {
         var pesel = buildPesel(e.data);
 
         if(validateControlNumber(pesel.split(""))) {
-            this.postMessage("Poprawny PESEL: " + pesel);
-        } else {
-            this.postMessage("Nieprawidlowy PESEL!");
+            message = "Poprawny PESEL: " + pesel;
         }
-    } else {
-        this.postMessage("Nieprawidlowy PESEL!");
-    };
+    }
+    this.postMessage(message);    
     this.close();
 }, false);
 
@@ -20,8 +18,7 @@ function validateInput(pesel) {
     var postfix = pesel[3];
 
     var date = new Date(year, month - 1, day - 1)
-    if(date.isNan) return false;
-    if(postfix.length !== 5) return false; 
+    if(date.isNan || postfix.length !== 5) return false;
     return true;
 }
 
@@ -30,19 +27,13 @@ function validateControlNumber(pesel) {
 
     var zipped = pesel
         .slice(0, pesel.length - 1)
-        .map(function(x, i) {
-            return [x, weights[i]];
-        });
-        
-    for(const zip of zipped) {
-        console.log(zip);
-    }
+        .map((x, i) => [x, weights[i]]);
 
-    var sum = zipped.map(pair => pair.reduce(function(a,b) { return a * b; }));
-    console.log(sum);
-    sum = sum.reduce(function(a,b) { return a + b; });
-    console.log(sum);
-    var controlNumber = (10 - sum % 10) % 10;
+    var sumOfWeights = zipped.map(pair =>
+            pair.reduce((a,b) => a * b))
+        .reduce((a,b) => a + b);
+
+    var controlNumber = (10 - sumOfWeights % 10) % 10;
     if(controlNumber != pesel[pesel.length - 1]) return false;
     return true;
 }
@@ -50,16 +41,13 @@ function validateControlNumber(pesel) {
 function buildPesel(peselArr) {
     var year = peselArr[0].substring(2,4);
     var month = buildMonth(peselArr[0], peselArr[1]);
-    if(month.length == 1) month = '0' + month;
-    
     var day = peselArr[2];
-    if(day.length == 1) day = '0' + day;
     var postfix = peselArr[3];
 
-    return year +
-        month +
-        day +
-        postfix;
+    if(month.length == 1) month = '0' + month;
+    if(day.length == 1) day = '0' + day;
+    
+    return year + month + day + postfix;
 }
 
 function buildMonth(year, month) {
