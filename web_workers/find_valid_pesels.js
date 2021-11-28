@@ -1,6 +1,10 @@
 this.addEventListener('message', function(e) {
-    var allPossibleCombinations = buildDateFromControlNumber(e.data);
-    this.postMessage(allPossibleCombinations);
+    if(e.data.length == 5) {
+        var allPossibleCombinations = buildDateFromControlNumber(e.data);
+        this.postMessage(allPossibleCombinations);
+    } else {
+        this.postMessage("Nie podano 5 cyfr!");
+    }
     this.close();
 }, false);
 
