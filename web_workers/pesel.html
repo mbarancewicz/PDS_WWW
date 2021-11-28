@@ -18,6 +18,7 @@
     <input type="text" pattern="\d*" id="postfix" maxlength="5">
     <button onclick="validate()">Stworz</button>
     <button onclick="generateFromDate()">Wygeneruj z daty</button>
+    <button onclick="findValidPesels()">Znajdz wszystkie poprawne</button>
 
     <div id="pesel"></div>
     <div id="validationResult"></div>
@@ -54,6 +55,18 @@
             ];
 
             worker.postMessage(peselArr);
+        }
+
+        function findValidPesels() {
+            var worker = new Worker('find_valid_pesels.js');
+            
+            worker.addEventListener('message', function(e) {
+                document.getElementById('validationResult').innerHTML = e.data;
+            }, false);
+
+            var peselPostfix = document.getElementById('postfix').value;
+
+            worker.postMessage(peselPostfix);
         }
     </script>
 </body>
